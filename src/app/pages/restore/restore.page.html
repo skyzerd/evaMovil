@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="navegador">
+    <ion-title color="warning">Restore</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-img class="ion-margin-top" src="assets\imagenes\pass-duoc.svg"></ion-img>
+  <ion-item class="fondo input ion-margin-top" lines="full">
+    <!-- Vincula el valor del campo de correo electrónico a la propiedad 'email' -->
+    <ion-input label="Email" labelPlacement="floating" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <!-- Deshabilita el botón 'Enviar Email' si el campo está vacío -->
+  <ion-button color="warning" expand="block" [disabled]="!email" (click)="enviarEmail()"> Enviar Email </ion-button>
+  <ion-button color="warning" (click)="volver()" expand="block"> Volver </ion-button>
+</ion-content>
+

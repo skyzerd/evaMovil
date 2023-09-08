@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="navegador">
+    <ion-title color="warning">RegistrApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="centrado">
+    <ion-img class="animated-image" src="assets/imagenes/yellow-duoc.svg"></ion-img>
+
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Usuario" labelPlacement="floating" [(ngModel)]="mdl_usuario"></ion-input>
+    </ion-item>
+    <ion-item class="fondo input ion-margin-top" lines="none">
+      <ion-input label="Contraseña" type="password" labelPlacement="floating" [(ngModel)]="mdl_contrasena"></ion-input>
+    </ion-item>
+  
+    <ion-button color="warning" (click)="navegar()" expand="block" class="ion-margin-top boton barra"> Ingresar </ion-button>
+    <ion-button color="warning" (click)="recuperar()" expand="block" class="ion-margin-top boton barra"> Recuperar Contraseña </ion-button>
+  </div>
+</ion-content>

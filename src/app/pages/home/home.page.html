@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="navegador">
+    <ion-title color="warning">RegistrApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="centrado">
+    <h2>Bienvenido, {{ usuario }}!</h2>
+
+    <!-- Mostrar la imagen "home-libros" solo si no hay selección -->
+    <ion-img class="ion-margin-top" src="assets\imagenes\home-libros.svg" *ngIf="!seleccion"></ion-img>
+
+    <!-- Mostrar el botón "Mostrar Lista" si la lista está oculta -->
+    <ion-button color="warning" *ngIf="!mostrarLista" expand="block" (click)="mostrarOcultarLista()"> Mostrar Lista </ion-button>
+
+    <!-- Lista de elementos oculta por defecto -->
+    <ion-list *ngIf="mostrarLista">
+      <ion-item>
+        <ion-label>Seleccionar clase:</ion-label>
+        <ion-select [(ngModel)]="seleccion">
+          <ion-select-option *ngFor="let item of elementos" [value]="item">{{ item.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <!-- Mostrar la imagen seleccionada si se ha seleccionado una clase -->
+    <ion-img [src]="seleccion?.imagenUrl" *ngIf="seleccion" class="ion-margin-top"></ion-img>
+
+    <!-- Mostrar botones de acuerdo a la selección -->
+    <ion-button color="warning" *ngIf="seleccion" expand="block" (click)="mostrarOcultarLista()"> Cerrar Imagen </ion-button>
+    <ion-button color="warning" expand="block" (click)="volver()"> Cerrar Sesión </ion-button>
+  </div>
+</ion-content>
